@@ -25,6 +25,7 @@ This is the Gilded Rose kata in JavaScript with Jest.
 #### How to Run
 
 ## Features
+
 - All items have a SellIn value which denotes the number of days we have to sell the item
 - All items have a Quality value which denotes how valuable the item is
 - At the end of each day our system lowers both values for every item
@@ -37,5 +38,6 @@ This is the Gilded Rose kata in JavaScript with Jest.
 - “Backstage passes”, like aged brie, increases in Quality as it’s SellIn value approaches; Quality increases by 2 when there are 10 days or less and by 3 when there are 5 days or less but Quality drops to 0 after the concert
 
 ## Diagram
+
 Diagramming was a great help in visualising the structure of Gilded Rose.
-![Gilded Rose Diagram](/images/gilded-rose-diagram.jpeg)
+![Gilded Rose Diagram](/images/gilded-rose-diagram.jpg)
