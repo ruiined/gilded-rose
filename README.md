@@ -9,7 +9,7 @@
 
 ## Overview
 
-This is the [Gilded Rose](http://iamnotmyself.com/2011/02/14/refactor-this-the-gilded-rose-kata/) [kata](https://github.com/emilybache/GildedRose-Refactoring-Kata) in JavaScript with Jest.
+This is the [Gilded Rose](http://iamnotmyself.com/2011/02/14/refactor-this-the-gilded-rose-kata/) exercise in JavaScript with Jest. The source code came from [this](https://github.com/emilybache/GildedRose-Refactoring-Kata) repository.
 
 ## Instructions
 
