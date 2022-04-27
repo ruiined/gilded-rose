@@ -45,19 +45,19 @@ describe("Shop", () => {
     expect(shop.items[3].quality).toBe(5);
   });
 
-  // it("increases the quality of the backstage passes appropriately", () => {
-  //   expect(shop.items[4].sellIn).toBe(10);
-  //   expect(shop.items[4].quality).toBe(5);
-  //   for (let n = 0; n < 4; n++) shop.updateQuality();
-  //   expect(shop.items[4].sellIn).toBe(6);
-  //   expect(shop.items[4].quality).toBe(13);
-  //   for (let n = 0; n < 6; n++) shop.updateQuality();
-  //   expect(shop.items[4].sellIn).toBe(0);
-  //   expect(shop.items[4].quality).toBe(30);
-  //   shop.updateQuality();
-  //   expect(shop.items[4].sellIn).toBe(-1);
-  //   expect(shop.items[4].quality).toBe(0);
-  // });
+  it("increases the quality of the backstage passes appropriately", () => {
+    expect(shop.items[4].sellIn).toBe(10);
+    expect(shop.items[4].quality).toBe(5);
+    for (let n = 0; n < 4; n++) shop.updateQuality();
+    expect(shop.items[4].sellIn).toBe(6);
+    expect(shop.items[4].quality).toBe(13);
+    for (let n = 0; n < 6; n++) shop.updateQuality();
+    expect(shop.items[4].sellIn).toBe(0);
+    expect(shop.items[4].quality).toBe(30);
+    shop.updateQuality();
+    expect(shop.items[4].sellIn).toBe(-1);
+    expect(shop.items[4].quality).toBe(0);
+  });
 
   it("doesn't lower the quality below 0", () => {
     for (let n = 0; n < 66; n++) shop.updateQuality();

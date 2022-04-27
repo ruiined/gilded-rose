@@ -20,10 +20,10 @@ class Shop {
   }
 
   _backstagePass(item) {
-    if (item.sellIn > 10) return (item.quality += 1);
-    if (item.sellIn > 5) return (item.quality += 3);
-    if (item.sellIn > 0) return (item.quality += 4);
-    if (item.sellIn === 0) return (item.quality = 0);
+    if (item.sellIn >= 10 && item.sellIn < 50) return (item.quality += 1);
+    if (item.sellIn >= 5 && item.sellIn < 10) return (item.quality += 2);
+    if (item.sellIn >= 0 && item.sellIn < 5) return (item.quality += 3);
+    if (item.sellIn === -1) item.quality = 0;
   }
 }
 
