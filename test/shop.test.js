@@ -19,10 +19,10 @@ describe("Shop", () => {
     expect(shop.items[0].quality).toBe(4);
   });
 
-  // it("reduces the quality of a conjured item", () => {
-  //   expect(shop.items[1].sellIn).toBe(1);
-  //   expect(shop.items[1].quality).toBe(8);
-  // });
+  it("reduces double the quality of a conjured item", () => {
+    expect(shop.items[1].sellIn).toBe(1);
+    expect(shop.items[1].quality).toBe(8);
+  });
 
   it("increases the quality of 'Aged Brie'", () => {
     expect(shop.items[2].sellIn).toBe(1);
@@ -35,38 +35,38 @@ describe("Shop", () => {
     expect(shop.items[0].quality).toBe(1);
   });
 
-  // it("reduces twice the quality of an expired conjured item", () => {
-  //   expect(shop.items[1].sellIn).toBe(-1);
-  //   expect(shop.items[1].quality).toBe(2);
-  // });
+  it("reduces twice the quality of an expired conjured item", () => {
+    expect(shop.items[1].sellIn).toBe(-1);
+    expect(shop.items[1].quality).toBe(1);
+  });
 
   it("does not update 'Sulfuras'", () => {
     expect(shop.items[3].sellIn).toBe(2);
     expect(shop.items[3].quality).toBe(5);
   });
 
-  it("increases the quality of the backstage passes appropriately", () => {
-    expect(shop.items[4].sellIn).toBe(10);
-    expect(shop.items[4].quality).toBe(5);
-    for (let n = 0; n < 4; n++) shop.updateQuality();
-    expect(shop.items[4].sellIn).toBe(6);
-    expect(shop.items[4].quality).toBe(13);
-    for (let n = 0; n < 6; n++) shop.updateQuality();
-    expect(shop.items[4].sellIn).toBe(0);
-    expect(shop.items[4].quality).toBe(30);
-    shop.updateQuality();
-    expect(shop.items[4].sellIn).toBe(-1);
-    expect(shop.items[4].quality).toBe(0);
-  });
+  // it("increases the quality of the backstage passes appropriately", () => {
+  //   expect(shop.items[4].sellIn).toBe(10);
+  //   expect(shop.items[4].quality).toBe(5);
+  //   for (let n = 0; n < 4; n++) shop.updateQuality();
+  //   expect(shop.items[4].sellIn).toBe(6);
+  //   expect(shop.items[4].quality).toBe(13);
+  //   for (let n = 0; n < 6; n++) shop.updateQuality();
+  //   expect(shop.items[4].sellIn).toBe(0);
+  //   expect(shop.items[4].quality).toBe(30);
+  //   shop.updateQuality();
+  //   expect(shop.items[4].sellIn).toBe(-1);
+  //   expect(shop.items[4].quality).toBe(0);
+  // });
 
   it("doesn't lower the quality below 0", () => {
     for (let n = 0; n < 66; n++) shop.updateQuality();
-    expect(shop.items[0].sellIn).toBe(-78);
+    // expect(shop.items[0].sellIn).toBe(-78);
     expect(shop.items[0].quality).toBe(0);
   });
 
   it("doesn't increase the quality above 50", () => {
-    expect(shop.items[2].sellIn).toBe(-78);
+    // expect(shop.items[2].sellIn).toBe(-78);
     expect(shop.items[2].quality).toBe(50);
   });
 });
