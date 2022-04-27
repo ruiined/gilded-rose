@@ -9,6 +9,11 @@ describe("Shop", () => {
   const items = [regular, conjured, brie, sulf, vip];
   let shop = new Shop(items);
 
+  it("starts off empty if no items are given", () => {
+    const emptyShop = new Shop();
+    expect(emptyShop.items).toEqual([]);
+  });
+
   it("stores the items in the shop", () => {
     expect(shop.items.length).toBe(5);
   });

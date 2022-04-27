@@ -10,14 +10,15 @@ class Shop {
       if (item.name === "Sulfuras, Hand of Ragnaros") return;
       item.sellIn--;
 
-      if (item.name === "Aged Brie") return this._amendQuality(item, 1);
-      if (item.name === "Backstage Pass") return this._backstagePass(item);
-      if (item.sellIn < 0 && item.name === "Conjured")
-        return this._amendQuality(item, -4);
-      if (item.sellIn < 0 || item.name === "Conjured")
-        return this._amendQuality(item, -2);
-
-      this._amendQuality(item, -1);
+      item.name === "Aged Brie"
+        ? this._amendQuality(item, 1)
+        : item.name === "Backstage Pass"
+        ? this._backstagePass(item)
+        : item.sellIn < 0 && item.name === "Conjured"
+        ? this._amendQuality(item, -4)
+        : item.sellIn < 0 || item.name === "Conjured"
+        ? this._amendQuality(item, -2)
+        : this._amendQuality(item, -1);
     });
   }
 
@@ -28,10 +29,13 @@ class Shop {
   }
 
   _backstagePass(item) {
-    if (item.sellIn >= 10 && item.sellIn < 50) return (item.quality += 1);
-    if (item.sellIn >= 5 && item.sellIn < 10) return (item.quality += 2);
-    if (item.sellIn >= 0 && item.sellIn < 5) return (item.quality += 3);
-    if (item.sellIn === -1) item.quality = 0;
+    item.sellIn === -1
+      ? (item.quality = 0)
+      : item.sellIn >= 0 && item.sellIn < 5
+      ? this._amendQuality(item, 3)
+      : item.sellIn >= 5 && item.sellIn < 10
+      ? this._amendQuality(item, 2)
+      : this._amendQuality(item, 1);
   }
 }
 
