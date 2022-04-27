@@ -37,7 +37,7 @@ describe("Shop", () => {
 
   it("reduces twice the quality of an expired conjured item", () => {
     expect(shop.items[1].sellIn).toBe(-1);
-    expect(shop.items[1].quality).toBe(1);
+    expect(shop.items[1].quality).toBe(2);
   });
 
   it("does not update 'Sulfuras'", () => {
@@ -61,12 +61,12 @@ describe("Shop", () => {
 
   it("doesn't lower the quality below 0", () => {
     for (let n = 0; n < 66; n++) shop.updateQuality();
-    // expect(shop.items[0].sellIn).toBe(-78);
+    expect(shop.items[0].sellIn).toBe(-78);
     expect(shop.items[0].quality).toBe(0);
   });
 
   it("doesn't increase the quality above 50", () => {
-    // expect(shop.items[2].sellIn).toBe(-78);
+    expect(shop.items[2].sellIn).toBe(-78);
     expect(shop.items[2].quality).toBe(50);
   });
 });

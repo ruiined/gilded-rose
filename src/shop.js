@@ -1,22 +1,30 @@
 class Shop {
   constructor(items = []) {
     this.items = items;
+    this.maxQuality = 50;
+    this.minQuality = 0;
   }
 
   updateQuality() {
     this.items.forEach((item) => {
       if (item.name === "Sulfuras, Hand of Ragnaros") return;
-      item.sellIn -= 1;
-      if (item.quality <= 0 || item.quality >= 50) return;
-      if (item.name === "Aged Brie") return (item.quality += 1);
+      item.sellIn--;
+
+      if (item.name === "Aged Brie") return this._amendQuality(item, 1);
       if (item.name === "Backstage Pass") return this._backstagePass(item);
-      if (item.name === "Conjured") item.quality -= 1;
-      if (item.sellIn < 0) item.quality -= 1;
-      if (item.quality <= 0) return;
-      if (item.sellIn < 0 && item.name === "Conjured" && item.quality >= 2)
-        item.quality -= 2;
-      item.quality -= 1;
+      if (item.sellIn < 0 && item.name === "Conjured")
+        return this._amendQuality(item, -4);
+      if (item.sellIn < 0 || item.name === "Conjured")
+        return this._amendQuality(item, -2);
+
+      this._amendQuality(item, -1);
     });
+  }
+
+  _amendQuality(item, times) {
+    item.quality += times;
+    if (item.quality > this.maxQuality) item.quality = this.maxQuality;
+    if (item.quality < this.minQuality) item.quality = this.minQuality;
   }
 
   _backstagePass(item) {
