@@ -13,17 +13,17 @@ class Inventory {
       },
       {
         category: "ticket",
-        items: ["Backstage Pass"],
+        items: ["Backstage Pass", "Backstage passes to a TAFKAL80ETC concert"],
         aging: 1,
       },
       {
         category: "regular",
-        items: ["Candy", "Chocolate"],
+        items: ["Candy", "Chocolate", "+5 Dexterity Vest"],
         aging: -1,
       },
       {
         category: "conjured",
-        items: ["Conjured"],
+        items: ["Conjured", "Conjured Mana Cake"],
         aging: -2,
       },
     ];

@@ -23,6 +23,28 @@ This is the [Gilded Rose](http://iamnotmyself.com/2011/02/14/refactor-this-the-g
 - `npm test` - unit tests, coverage and linter
 
 #### How to Run
+- `cd src`
+- `node` to run REPL
+- `.load ./shop.js` to load the shop
+- `'const Item = require(./item)` to load an item class
+- Create the shop and item objects:
+  ```
+  const items = [
+  new Item("+5 Dexterity Vest", 10, 20),
+  new Item("Aged Brie", 2, 0),
+  new Item("Elixir of the Mongoose", 5, 7),
+  new Item("Sulfuras, Hand of Ragnaros", 0, 80),
+  new Item("Sulfuras, Hand of Ragnaros", -1, 80),
+  new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20),
+  new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49),
+  new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49),
+  new Item("Conjured Mana Cake", 3, 6),
+  ];
+
+  const shop = new Shop(items);
+  ```
+- `shop.updateQuality()` to have a daily update
+- `shop` to review the shop items
 
 ## Features
 
@@ -38,6 +60,18 @@ This is the [Gilded Rose](http://iamnotmyself.com/2011/02/14/refactor-this-the-g
 - “Backstage passes”, like aged brie, increases in Quality as it’s SellIn value approaches; Quality increases by 2 when there are 10 days or less and by 3 when there are 5 days or less but Quality drops to 0 after the concert
 
 ## My Approach
+
+I've started the process by writing out all the tests, until I got all the components of the shop covered. Once I passed the tests, it was time to refactor the Shop class. I found it tough to simply "refactor" as the code was impossible for me to work with. I had to delete the whole if block (as it was the only manpower for the class) and start over.
+
+Item class, of course, was moved to a separate file and, aside from writing the tests, had no changes made to it.
+
+Shop class had me create 2 additional methods:
+  1. `_amendQuality` to increase/decrease quality and monitor that it doesn't go outside the limits (min & max).
+  2. `_ticket` for the backstage ticket logic as it had a handful.
+
+The `updateQuality` method was still quite lengthy and, to tackle that, I've created an `Inventory` class. It stores the categories' information and finds the required data with an `identify` method that takes an item name as an argument. That helped me to refactor the shop even further to the point it looked satisfactory.
+
+I'm not 100% happy with my result. However, I felt like I had spent enought time on it. One of the parts that could be improved would be reducing Shop methods' length, as well as adding more functionality to the Inventory class. The backstage pass logic perhaps needs some improvement too.
 
 ## Diagram
 
