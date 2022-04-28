@@ -35,16 +35,4 @@ class Shop {
   }
 }
 
-const regular = { name: "Candy", sellIn: 2, quality: 5 };
-const conjured = { name: "Conjured", sellIn: 2, quality: 10 };
-const brie = { name: "Aged Brie", sellIn: 2, quality: 5 };
-const sulf = { name: "Sulfuras, Hand of Ragnaros", sellIn: 2, quality: 5 };
-const vip = { name: "Backstage Pass", sellIn: 13, quality: 2 };
-const items = [regular, conjured, brie, sulf, vip];
-const shop = new Shop(items);
-
-console.log(shop);
-console.log(shop.updateQuality());
-console.log(shop);
-
 module.exports = Shop;
