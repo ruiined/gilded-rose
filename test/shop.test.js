@@ -1,13 +1,14 @@
 const Shop = require("../src/shop");
+const Inventory = require("../src/inventory");
 
 describe("Shop", () => {
-  const regular = { name: "Regular", sellIn: 2, quality: 5 };
+  const regular = { name: "Candy", sellIn: 2, quality: 5 };
   const conjured = { name: "Conjured", sellIn: 2, quality: 10 };
   const brie = { name: "Aged Brie", sellIn: 2, quality: 5 };
   const sulf = { name: "Sulfuras, Hand of Ragnaros", sellIn: 2, quality: 5 };
   const vip = { name: "Backstage Pass", sellIn: 13, quality: 2 };
   const items = [regular, conjured, brie, sulf, vip];
-  let shop = new Shop(items);
+  let shop = new Shop(items, Inventory);
 
   it("starts off empty if no items are given", () => {
     const emptyShop = new Shop();
