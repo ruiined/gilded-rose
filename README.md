@@ -1,6 +1,6 @@
 # Gilded Rose
 
-[![tests](https://github.com/ruiined/bank-tech-test/actions/workflows/main.yml/badge.svg)](https://github.com/ruiined/gilded-rose/actions/workflows/main.yml)
+[![tests](https://github.com/ruiined/gilded-rose/actions/workflows/testing.yml/badge.svg)](https://github.com/ruiined/gilded-rose/actions/workflows/testing.yml)
 [![codecov](https://codecov.io/gh/ruiined/gilded-rose/branch/main/graph/badge.svg?token=aIfxAcpoTI)](https://codecov.io/gh/ruiined/gilded-rose)
 
 ![nodejs](https://img.shields.io/badge/npm-8.7.0-blue?logo=npm)
